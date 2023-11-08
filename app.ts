@@ -5,6 +5,8 @@ import "https://deno.land/std@0.205.0/dotenv/load.ts";
 
 const app = new Hono()
 
+console.log('allowed domains: \n'+Deno.env.get('ALLOWED_DOMAINS')?.split(',').join('\n'))
+
 app.use(cors({
   origin: Deno.env.get('ALLOWED_DOMAINS')?.split(',') || [],
 }))
